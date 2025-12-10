@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Game of Champions: Inspiring Young Players</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #e3e2dd;
+      --blue: #b7d5e8;
+      --peach: #f5c59a;
+      --green: #cfe8b5;
+      --text: #111111;
+      --title-font: "Helvetica Neue", Arial, sans-serif;
+      --body-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--body-font);
+      color: var(--text);
+      padding: 24px;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Blurred stadium background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url("media/stadium-day.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(12px);
+      transform: scale(1.1); /* prevents blur edges */
+      z-index: -1;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "title title title"
+        "subtitle subtitle subtitle"
+        "video-left intro intro"
+        "video-left goals goals"
+        "image1 image2 video-right"
+        "extra extra extra";
+      grid-gap: 20px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      grid-area: title;
+      text-align: center;
+      font-family: var(--title-font);
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      grid-area: subtitle;
+      text-align: center;
+      font-style: italic;
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    .subtitle span {
+      display: block;
+      margin-top: 4px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .box {
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(2px);
+    }
+
+    .video-left   { grid-area: video-left;  background: var(--green); }
+    .video-right  { grid-area: video-right; background: var(--green); }
+    .intro        { grid-area: intro;       background: var(--blue); }
+    .goals        { grid-area: goals;       background: var(--blue); }
+    .image1       { grid-area: image1;      background: var(--peach); }
+    .image2       { grid-area: image2;      background: var(--peach); }
+    .extra        { grid-area: extra;       background: var(--blue); }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+    }
+
+    p, li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 4px;
+    }
+
+    .age-group {
+      margin-top: 8px;
+    }
+
+    .age-group-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* Media wrappers */
+    .video-wrapper,
+    .image-wrapper {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;   /* 16:9 */
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .video-wrapper iframe,
+    .image-wrapper img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
+      }
+
+      .page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "subtitle"
+          "video-left"
+          "intro"
+          "goals"
+          "image1"
+          "image2"
+          "video-right"
+          "extra";
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>The Game of Champions: Inspiring Young Players</h1>
+
+    <div class="subtitle">
+      “You have to fight to reach your dream. You have to sacrifice and work hard for it”
+      <span>— Leo Messi</span>
+    </div>
+
+    <section class="box video-left">
+      <div class="section-title">Highlight Video</div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/8cF4AaoQ8V8"
+          title="Soccer Highlight Video"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p>
+        Inspire young players with real-game moments and the thrill of soccer under lights.
+      </p>
+    </section>
+
+    <section class="box intro">
+      <div class="section-title">Introduction</div>
+      <p>
+        Welcome to The Game of Champions, the ultimate destination to ignite your child’s
+        passion for soccer! Whether they’re just starting or looking to sharpen their skills,
+        our goal is simple: to make soccer fun, inspiring, and accessible for every young player.
+        Here, we believe in the power of the game to teach teamwork, build confidence, and create
+        lifelong memories. From exciting drills to expert tips, we’ve got everything your child
+        needs to kick-start their soccer journey. Let’s get ready to play, learn, and grow —
+        one goal at a time! ⚽🌟
+      </p>
+    </section>
+
+    <section class="box goals">
+      <div class="section-title">Goals</div>
+      <ul>
+        <li><strong>Master the Basics:</strong> Learn dribbling, passing, shooting, and defending.</li>
+        <li><strong>Build Confidence:</strong> Celebrate small wins and focus on effort.</li>
+        <li><strong>Teamwork &amp; Communication:</strong> Work with teammates and support each other.</li>
+        <li><strong>Get Fit &amp; Fast:</strong> Improve speed, strength, and agility through fun exercises.</li>
+        <li><strong>Set Personal Records:</strong> Track progress and aim for new challenges.</li>
+        <li><strong>Make Friends:</strong> Build friendships through soccer teams and games.</li>
+        <li><strong>Love the Game:</strong> Enjoy the excitement of soccer, not just the wins.</li>
+      </ul>
+    </section>
+
+    <section class="box image1">
+      <div class="section-title">Game Day Atmosphere</div>
+      <div class="image-wrapper">
+        <img src="media/stadium-day.jpg" alt="Soccer stadium at sunset filled with fans" />
+      </div>
+      <p>
+        The energy of a packed stadium shows young players what’s possible when they chase
+        their dreams with dedication and passion.
+      </p>
+    </section>
+
+    <section class="box image2">
+      <div class="section-title">Night Under the Lights</div>
+      <div class="image-wrapper">
+        <img src="media/stadium-night.jpg" alt="Night soccer match with cheering fans" />
+      </div>
+      <p>
+        Under the lights, every pass, goal, and cheer becomes a memory. We want every child
+        to feel this excitement, on and off the field.
+      </p>
+    </section>
+
+    <section class="box video-right">
+      <div class="section-title">Training & Motivation</div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/8cF4AaoQ8V8"
+          title="Training Video"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p>
+        Watch drills and training clips to help young players improve their skills, build
+        confidence, and stay motivated on their journey.
+      </p>
+    </section>
+
+    <section class="box extra">
+      <div class="section-title">Extra Information &amp; Schedules</div>
+
+      <div class="age-group">
+        <div class="age-group-title">U6 – U8 (Ages 5–8)</div>
+        <ul>
+          <li>Focus: Basic skills, coordination, and having fun</li>
+          <li>Practice Duration: 45 minutes to 1 hour</li>
+          <li>Sessions Per Week: 1–2 sessions</li>
+        </ul>
+      </div>
+
+      <div class="age-group">
+        <div class="age-group-title">U9 – U10 (Ages 8–10)</div>
+        <ul>
+          <li>Focus: Skill development, basic tactics, and understanding the game</li>
+          <li>Practice Duration: 1 to 1.5 hours</li>
+          <li>Sessions Per Week: 2 sessions</li>
+        </ul>
+      </div>
+
+      <div class="age-group">
+        <div class="age-group-title">U11 – U12 (Ages 10–12)</div>
+        <ul>
+          <li>Focus: Technical skill improvement, basic strategies, and teamwork</li>
+          <li>Practice Duration: 1.5 to 2 hours</li>
+          <li>Sessions Per Week: 2–3 sessions</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
